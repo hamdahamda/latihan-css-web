@@ -263,6 +263,7 @@ header label {
   color: #fff;
   text-transform: none;
   background: none;
+  border-radius: 5rem;
 }
 
 .newsletter form input[type="email"]::placeholder {
@@ -276,6 +277,7 @@ header label {
   font-size: 1.7rem;
   border-radius: 5rem;
   cursor: pointer;
+  margin-left: 0.5rem;
 }
 
 .newsletter form input[type="submit"]:hover {
@@ -462,6 +464,75 @@ header label {
   top: -0.5rem;
   font-size: 1.5rem;
   color: var(--pink);
+}
+
+.footer {
+  padding-top: 3rem;
+  background: url(/assets/images/footer-bg.png) no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.footer .box-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footer .box-container .box {
+  flex: 1 1 25rem;
+  margin: 2rem;
+}
+
+.footer .box-container .box h3 {
+  font-size: 2.5rem;
+  padding: 1rem 0;
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 1rem;
+}
+
+.footer .box-container .box p {
+  font-size: 1.5rem;
+  padding: 0.5rem 0;
+  color: #eee;
+}
+.footer .box-container .box a {
+  display: block;
+  font-size: 1.5rem;
+  padding: 0.5rem 0;
+  color: #eee;
+}
+
+.footer .box-container .box a:hover {
+  text-decoration: underline;
+}
+
+.footer .box-container .box .info {
+  display: flex;
+  align-items: center;
+}
+
+.footer .box-container .box .info i {
+  margin: 0.5rem 0;
+  margin-right: 1rem;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--pink);
+  font-size: 1.5rem;
+  height: 4.5rem;
+  width: 4.5rem;
+  line-height: 4.5rem;
+  text-align: center;
+}
+
+.footer .credit {
+  font-size: 2rem;
+  font-weight: normal;
+  letter-spacing: 0.1rem;
+  color: #fff;
+  border-top: 0.1rem solid #fff5;
+  padding: 2.5rem 1rem;
+  text-align: center;
 }
 
 /* media queries */
