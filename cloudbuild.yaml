@@ -1,0 +1,22 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/my-app', '.']
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/my-app']
+
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      [
+        'deploy',
+        'releases',
+        'create',
+        'release-001',
+        '--delivery-pipeline=gke-deploy-pipeline',
+        '--region=us-central1',
+        '--source=.',
+        '--images=my-app=gcr.io/$PROJECT_ID/my-app'
+      ]
+images:
+  - 'gcr.io/$PROJECT_ID/my-app'
