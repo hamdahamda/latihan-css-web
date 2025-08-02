@@ -1,0 +1,19 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'us-central1-docker.pkg.dev/sodium-pattern-465207-m9/cloudrun-testing-with-terraform/app:latest', '.']
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'us-central1-docker.pkg.dev/sodium-pattern-465207-m9/cloudrun-testing-with-terraform/app:latest']
+
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      [
+        'run', 'deploy', 'cloud-run-trigger-testing',
+        '--image', 'us-central1-docker.pkg.dev/sodium-pattern-465207-m9/cloudrun-testing-with-terraform/app:latest',
+        '--region', 'us-central1',
+        '--platform', 'managed',
+        '--allow-unauthenticated'
+      ]
+images:
+  - 'us-central1-docker.pkg.dev/sodium-pattern-465207-m9/cloudrun-testing-with-terraform/app:latest'
