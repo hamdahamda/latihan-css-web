@@ -15,5 +15,9 @@ steps:
         '--platform', 'managed',
         '--allow-unauthenticated'
       ]
+
 images:
   - 'us-central1-docker.pkg.dev/sodium-pattern-465207-m9/cloudrun-testing-with-terraform/app:latest'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
